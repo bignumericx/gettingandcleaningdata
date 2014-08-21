@@ -15,4 +15,10 @@ following files:
 - y_test.txt
 - X_test.txt
 
-The output of the run_analysis.R script is a file named tidydata.txt.
+The execution of run_analysis.R create a tidy data set and write a file named *tidydata.txt*.
+
+Remember, a tidy data set has:
+
+- each variables form a column
+- each observations form a row
+- each table store data about one class of experimental unit
