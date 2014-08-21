@@ -14,3 +14,5 @@ following files:
 - subject_test.txt
 - y_test.txt
 - X_test.txt
+
+The output of the run_analysis.R script is a file named tidydata.txt.
