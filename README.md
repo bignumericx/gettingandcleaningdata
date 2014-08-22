@@ -17,7 +17,7 @@ following files:
 
 The execution of run_analysis.R create a tidy data set and write a file named *tidydata.txt*.
 
-Remember, a tidy data set has:
+Remember, a tidy data set has the following caracteristics:
 
 - each variables form a column
 - each observations form a row
