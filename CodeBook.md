@@ -1,6 +1,13 @@
-#Human Activity Recognition Using Smartphones Dataset
+---
+title: "Human Activity Recognition Using Smartphones Dataset"
+author: "Steeve Brechmann"
+date: "Thursday, August 21, 2014"
+output: html_document
+---
 
-#Dataset description
+<p><markdown>
+
+##Dataset description
 
 The data come from an experiment carried out with a group of 30 volunteers. 
 
@@ -15,60 +22,53 @@ Each person performed six activities:
 
 while wearing a smartphone on the waist. 
 
-Using the embedded accelerometer and gyroscope, they captured the time valued 3-axial linear acceleration (tacc-xyz) and 3-axial angular velocity (tgyro-xyz) at a constant rate of 50 Hz.
+Using the embedded accelerometer and gyroscope, they captured the time valued 3-axial linear acceleration (tAcc-XYZ) and 3-axial angular velocity (tGyro-XYZ) at a constant rate of 50 Hz.
 
-The acceleration signal was then separated into body and gravity acceleration signals (tbodyacc-xyz and tgravityacc-xyz).
+The acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ).
 
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain *jerk* signals (tbodyaccjerk-xyz and tbodygyrojerk-xyz). 
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). 
 
-Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tbodyaccmag, tgravityaccmag, tbodyaccjerkmag, tbodygyromag, tbodygyrojerkmag). 
+Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fbodyacc-xyz, fbodyaccjerk-xyz, fbodygyro-xyz, fbodyaccjerkmag, fbodygyromag, fbodygyrojerkmag.
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag.
 
 ## Variables description
 
-The tidy data set contains the following variables:
+We have the following description:
 
- - subject_id: subject unique identifier
- - activity: activity name
- - bodyacc: body acceleration signal
- - gravityacc: gravity acceleration signal
- - bodyaccjerk: jerk body acceleration signal
- - bodygyro: body gyroscopic signal
- - bodygyrojerk: jerk body gyroscopic signal
- - bodyaccmag: magnitude of the body acceleration signal
- - gravityaccmag: magnitude of the gravity acceleration signal
- - bodyaccjerkmag: magnitude of the jerk body acceleration signal
- - bodygyromag: magnitude of the body gyroscopic signal
- - bodygyrojerkmag: magnitude of the jerk body gyroscopic signal
+ - Subject_ID: subject unique identifier
+ - Activity: activity name
+ - BodyAcc: body acceleration signal
+ - GravityAcc: gravity acceleration signal
+ - BodyAccJerk: jerk body acceleration signal
+ - BodyGyro: body gyroscopic signal
+ - BodyGyroJerk: jerk body gyroscopic signal
+ - BodyAccMag: magnitude of the body acceleration signal
+ - GravityAccMag: magnitude of the gravity acceleration signal
+ - BodyAccJerkMag: magnitude of the jerk body acceleration signal
+ - BodyGyroMag: magnitude of the body gyroscopic signal
+ - BodyGyroJerkMag: magnitude of the jerk body gyroscopic signal
 
 From these, we obtain:
 
- - subject_id
- - activity
- - [t|f]bodyacc_[mean|std]-[x|y|z]
- - [t|f]gravityacc_[mean|std]_[x|y|z]
- - [t|f]bodyaccjerk_[mean|std]_[x|y|z]
- - [t|f]bodygyro_[mean|std]_[x|y|z]
- - [t|f]bodygyrojerk_[mean|std]_[x|y|z]
- - [t|f]bodyaccmag_[mean|std]
- - [t|f]gravityaccmag_[mean|std]
- - [t|f]bodyaccjerkmag_[mean|std]
- - [t|f]bodygyromag_[mean|std]
- - [t|f]bodygyrojerkmag_[mean|std]
+ - [t|f]BodyAcc-[X|Y|Z]
+ - [t|f]GravityAcc-[X|Y|Z]
+ - [t|f]BodyAccJerk-[X|Y|Z]
+ - [t|f]BodyGyro-[X|Y|Z]
+ - [t|f]BodyGyroJerk-[X|Y|Z]
+ - [t|f]BodyAccMag
+ - [t|f]GravityAccMag
+ - [t|f]BodyAccJerkMag
+ - [t|f]BodyGyroMag
+ - [t|f]BodyGyroJerkMag
 
-Where we use the [t|f]bodyacc_[mean|std]_[x|y|z] notation to represent the mean (standard deviation) value of the time (frequency) valued body acceleration signal in the x (y or z) direction.
+Where we use the [t|f]BodyAcc-[X|Y|Z] notation to represent the time (frequency) valued body acceleration signal in the X (Y or Z) direction.
 
-By taking the mean and the standard deviation value of each signals, we obtain a total of 68 variables. 
+For each of these 33 features, we take the mean and standard deviation. Hence, we have a total of 66 features.
 
 ## Transformation
 
- The transformations made on the variables names are:
-
- - Use lower case
- - Remove dots or white spaces
-
-Subsequently, we take the average of each variable for each activity and each subject.
+Each transformations made on the raw data are explained in the comments of the run_analysis.R script. 
 
 ## Notes
 
@@ -76,3 +76,6 @@ Subsequently, we take the average of each variable for each activity and each su
  2. Each variables are normalized and bounded within [-1, 1].
  3. Each variables vector is a row in the text file.
  4. The tidy dataset is a 180-by-68 data frame.
+
+
+</markdown></p>

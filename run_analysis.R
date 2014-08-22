@@ -8,16 +8,20 @@
 rm(list=ls())
 
 # Load the activity labels
-activity_labels <- read.table("activity_labels.txt", header=FALSE, sep="", colClasses=c("numeric", "character"), col.names=c("activity_id", "activity"))
+activity_labels <- read.table("activity_labels.txt", header=FALSE, sep="", colClasses=c("numeric", "character"), 
+                              col.names=c("activity_id", "activity"))
 
 # Lower the case of activity description and removing "_"
 activity_labels$activity <- sub("_", " ", tolower(activity_labels$activity))
 
 # Load the features list
-features <- read.table("features.txt", header=FALSE, sep="", colClasses=c("numeric", "character"), col.names=c("feature_id", "feature"))
+features <- read.table("features.txt", header=FALSE, sep="", colClasses=c("numeric", "character"), 
+                       col.names=c("feature_id", "feature"))
 
-# Remove "()" and "-" characters from the variable names
+# Remove "()" characters from the variable names
 features$feature <- gsub("[()]", "", tolower(features$feature))
+
+# Replace "-" characters by "_" in the variable names
 features$feature <- gsub("-", "_", features$feature)
 
 # Load the training data
