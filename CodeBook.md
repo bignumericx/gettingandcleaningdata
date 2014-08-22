@@ -70,10 +70,12 @@ In general, we transformed the variables names as:
  - Lower case
  - Remove dots and white spaces
 
+Subsequently, we compute the average of each variable for each activity and each subject
+
 ## Notes
 
  1. *Jerk* is the time rate of change of acceleration.
  2. Each variables are normalized and bounded within [-1, 1].
  3. Each variables vector is a row in the text file.
  4. The tidy dataset is a 180-by-68 data frame.
- 5. The standard deviation can be negative due to the normalization.
+ 5. The standard deviation can be negative due to normalization.
