@@ -16,14 +16,18 @@ activity_labels$activity <- sub("_", " ", tolower(activity_labels$activity))
 # Load the features list
 features <- read.table("features.txt", header=FALSE, sep="", colClasses=c("numeric", "character"), col.names=c("feature_id", "feature"))
 
+# Remove "()" and "-" characters from the variable names
+features$feature <- gsub("[()]", "", tolower(features$feature))
+features$feature <- gsub("-", "_", features$feature)
+
 # Load the training data
 subject_train <- read.table("subject_train.txt", header=FALSE, sep="", colClasses="numeric", col.names="subject_id")
 y_train <- read.table("y_train.txt", header=FALSE, sep="", colClasses="numeric", col.names="activity_id")
 X_train <- read.table("X_train.txt", header=FALSE, sep="", colClasses="numeric")
 
 # Use descriptive names for the activities in the data set
-names(X_train) <- tolower(features$feature)
-
+names(X_train) <- features$feature
+ 
 # Column bind the training data
 train <- cbind(subject_train, activity_id=y_train$activity_id, X_train)
 
@@ -39,7 +43,7 @@ y_test <- read.table("y_test.txt", header=FALSE, sep="", colClasses="numeric", c
 X_test <- read.table("X_test.txt", header=FALSE, sep="", colClasses="numeric")
 
 # Use descriptive lower case names to name the activities in the data set
-names(X_test) <- tolower(features$feature)
+names(X_test) <- features$feature
 
 # Column bind the test data
 test <- cbind(subject_test, activity_id=y_test$activity_id, X_test)
@@ -54,7 +58,7 @@ data <- rbind(train, test)
 rm(X_test, activity_labels, features, subject_test, test, train, y_test)
 
 # Find the mean() and std() attributes with regular expression
-mean_std_attributes <- grep("-mean[()]-|-mean[()]|-std[()]-|-std[()]", names(data), value=TRUE)
+mean_std_attributes <- grep("_mean_[xyz]|_mean$|_std_[xyz]|_std$", names(data), value=TRUE)
 
 # Select only the mean() and std() attributes
 data <- data[, c("subject_id", "activity", mean_std_attributes)]

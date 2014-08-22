@@ -46,18 +46,18 @@ From these, we obtain:
 
  - subject_id
  - activity
- - [t|f]bodyacc-[mean()|std()]-[x|y|z]
- - [t|f]gravityacc-[mean()|std()]-[x|y|z]
- - [t|f]bodyaccjerk-[mean()|std()]-[x|y|z]
- - [t|f]bodygyro-[mean()|std()]-[x|y|z]
- - [t|f]bodygyrojerk-[mean()|std()]-[x|y|z]
- - [t|f]bodyaccmag-[mean()|std()]
- - [t|f]gravityaccmag-[mean()|std()]
- - [t|f]bodyaccjerkmag-[mean()|std()]
- - [t|f]bodygyromag-[mean()|std()]
- - [t|f]bodygyrojerkmag-[mean()|std()]
+ - [t|f]bodyacc_[mean|std]-[x|y|z]
+ - [t|f]gravityacc_[mean|std]_[x|y|z]
+ - [t|f]bodyaccjerk_[mean|std]_[x|y|z]
+ - [t|f]bodygyro_[mean|std]_[x|y|z]
+ - [t|f]bodygyrojerk_[mean|std]_[x|y|z]
+ - [t|f]bodyaccmag_[mean|std]
+ - [t|f]gravityaccmag_[mean|std]
+ - [t|f]bodyaccjerkmag_[mean|std]
+ - [t|f]bodygyromag_[mean|std]
+ - [t|f]bodygyrojerkmag_[mean|std]
 
-Where we use the [t|f]bodyacc-[mean()|std()]-[x|y|z] notation to represent the mean (standard deviation) value of the time (frequency) valued body acceleration signal in the x (y or z) direction.
+Where we use the [t|f]bodyacc_[mean|std]_[x|y|z] notation to represent the mean (standard deviation) value of the time (frequency) valued body acceleration signal in the x (y or z) direction.
 
 By taking the mean and the standard deviation value of each signals, we obtain a total of 68 variables. 
 
@@ -66,7 +66,7 @@ By taking the mean and the standard deviation value of each signals, we obtain a
  The transformations made on the variables names are:
 
  - Use lower case
- - Remove underscores, dots or white spaces
+ - Remove dots or white spaces
 
 Subsequently, we take the average of each variable for each activity and each subject.
 
