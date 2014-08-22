@@ -1,11 +1,4 @@
----
-title: "Human Activity Recognition Using Smartphones Dataset"
-author: "Steeve Brechmann"
-date: "Thursday, August 21, 2014"
-output: html_document
----
-
-<p><markdown>
+##Human Activity Recognition Using Smartphones Dataset
 
 ##Dataset description
 
@@ -36,39 +29,46 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 
 We have the following description:
 
- - Subject_ID: subject unique identifier
- - Activity: activity name
- - BodyAcc: body acceleration signal
- - GravityAcc: gravity acceleration signal
- - BodyAccJerk: jerk body acceleration signal
- - BodyGyro: body gyroscopic signal
- - BodyGyroJerk: jerk body gyroscopic signal
- - BodyAccMag: magnitude of the body acceleration signal
- - GravityAccMag: magnitude of the gravity acceleration signal
- - BodyAccJerkMag: magnitude of the jerk body acceleration signal
- - BodyGyroMag: magnitude of the body gyroscopic signal
- - BodyGyroJerkMag: magnitude of the jerk body gyroscopic signal
+ - subject_id: subject unique identifier
+ - activity: activity name
+ - bodyacc: body acceleration signal
+ - gravityacc: gravity acceleration signal
+ - bodyaccjerk: jerk body acceleration signal
+ - bodygyro: body gyroscopic signal
+ - bodygyrojerk: jerk body gyroscopic signal
+ - bodyaccmag: magnitude of the body acceleration signal
+ - gravityaccmag: magnitude of the gravity acceleration signal
+ - bodyaccjerkmag: magnitude of the jerk body acceleration signal
+ - bodygyromag: magnitude of the body gyroscopic signal
+ - bodygyrojerkmag: magnitude of the jerk body gyroscopic signal
 
 From these, we obtain:
 
- - [t|f]BodyAcc-[X|Y|Z]
- - [t|f]GravityAcc-[X|Y|Z]
- - [t|f]BodyAccJerk-[X|Y|Z]
- - [t|f]BodyGyro-[X|Y|Z]
- - [t|f]BodyGyroJerk-[X|Y|Z]
- - [t|f]BodyAccMag
- - [t|f]GravityAccMag
- - [t|f]BodyAccJerkMag
- - [t|f]BodyGyroMag
- - [t|f]BodyGyroJerkMag
+ - subject_id
+ - activity
+ - [t|f]bodyacc_[mean|std]_[x|y|z]
+ - [t|f]gravityacc_[mean|std]_[x|y|z]
+ - [t|f]bodyaccjerk_[mean|std]_[x|y|z]
+ - [t|f]bodygyro_[mean|std]_[x|y|z]
+ - [t|f]bodygyrojerk_[mean|std]_[x|y|z]
+ - [t|f]bodyaccmag_[mean|std]
+ - [t|f]gravityaccmag_[mean|std]
+ - [t|f]bodyaccjerkmag_[mean|std]
+ - [t|f]bodygyromag_[mean|std]
+ - [t|f]bodygyrojerkmag_[mean|std]
 
-Where we use the [t|f]BodyAcc-[X|Y|Z] notation to represent the time (frequency) valued body acceleration signal in the X (Y or Z) direction.
+Where we use the [t|f]bodyacc_[mean|std]_[x|y|z] notation to represent the mean (standard deviation) value of the time (frequency) valued body acceleration signal in the X (Y or Z) direction.
 
-For each of these 33 features, we take the mean and standard deviation. Hence, we have a total of 66 features.
+We obtain a total of 68 variables.
 
 ## Transformation
 
-Each transformations made on the raw data are explained in the comments of the run_analysis.R script. 
+Each transformations made on the raw data are explained in details in the comments in the run_analysis.R script.
+
+In general, we transformed the variables names as:
+
+ - Lower case
+ - Remove dots and white spaces
 
 ## Notes
 
@@ -76,6 +76,4 @@ Each transformations made on the raw data are explained in the comments of the r
  2. Each variables are normalized and bounded within [-1, 1].
  3. Each variables vector is a row in the text file.
  4. The tidy dataset is a 180-by-68 data frame.
-
-
-</markdown></p>
+ 5. The standard deviation can be negative due to the normalization.
